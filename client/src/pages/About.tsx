@@ -77,7 +77,16 @@ export default function About() {
       {/* Founder Section */}
       <section className="py-20 md:py-32 bg-white">
         <div className="container">
-          <div className="grid grid-cols-1 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Image Fondateur */}
+            <div className="animate-fade-in-up">
+              <img
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663370713531/ZzPxKNKJISRsvirl.jpg"
+                alt="Messan Salem ADIGUIDI - Fondateur Rising Digital IA"
+                className="w-full rounded-2xl shadow-2xl"
+              />
+            </div>
+
             {/* Contenu texte */}
             <div className="animate-fade-in-up">
               <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-2">

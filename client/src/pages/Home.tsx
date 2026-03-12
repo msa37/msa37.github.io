@@ -87,9 +87,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Contenu texte */}
             <div className="animate-fade-in-up">
-              <div className="inline-block mb-6 px-4 py-2 bg-yellow-500 text-blue-900 rounded-full font-bold text-sm">
-                🚀 Powered by AI
-              </div>
+
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
                 Transformez Votre Vision en Puissance Digitale
               </h1>
