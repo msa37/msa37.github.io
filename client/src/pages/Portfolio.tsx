@@ -5,6 +5,7 @@
  */
 
 import { ExternalLink, ArrowRight } from 'lucide-react';
+import { Link } from 'wouter';
 
 export default function Portfolio() {
   const projects = [
@@ -315,12 +316,12 @@ export default function Portfolio() {
             Contactez-nous pour discuter de votre projet et découvrir comment nous pouvons vous aider
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/contact"
               className="px-8 py-4 bg-yellow-500 text-blue-900 font-bold rounded-lg hover:bg-yellow-400 transition-all duration-200 hover:scale-105 flex items-center justify-center gap-2"
             >
               Demander un Devis <ArrowRight className="w-5 h-5" />
-            </a>
+            </Link>
             <a
               href="https://wa.me/22893392515"
               target="_blank"

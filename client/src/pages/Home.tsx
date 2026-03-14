@@ -95,12 +95,12 @@ export default function Home() {
                 Accompagnement des PME, églises et entrepreneurs africains vers la digitalisation intelligente grâce à l'IA, au marketing moderne et à l'innovation digitale.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
+                <Link
                   href="/contact"
                   className="px-8 py-4 bg-yellow-500 text-blue-900 font-bold rounded-lg hover:bg-yellow-400 transition-all duration-200 hover:scale-105 flex items-center justify-center gap-2"
                 >
                   Demander un Devis <ArrowRight className="w-5 h-5" />
-                </a>
+                </Link>
                 <a
                   href="https://wa.me/22893392515"
                   target="_blank"
@@ -295,12 +295,12 @@ export default function Home() {
             Contactez-nous dès aujourd'hui pour une consultation gratuite et découvrez comment Rising Digital IA peut accélérer votre croissance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/contact"
               className="px-8 py-4 bg-blue-900 text-white font-bold rounded-lg hover:bg-blue-800 transition-all duration-200 hover:scale-105 flex items-center justify-center gap-2"
             >
               Demander un Devis <ArrowRight className="w-5 h-5" />
-            </a>
+            </Link>
             <a
               href="https://wa.me/22893392515"
               target="_blank"
