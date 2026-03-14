@@ -5,7 +5,7 @@
  */
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -17,6 +17,8 @@ export default function Contact() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -24,17 +26,45 @@ export default function Contact() {
       ...prev,
       [name]: value,
     }));
+    setError('');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-    }, 3000);
+    setIsLoading(true);
+    setError('');
+
+    try {
+      // Envoyer les données à Formspree
+      const response = await fetch('https://formspree.io/f/xyzgqwpj', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5000);
+      } else {
+        setError('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.');
+      }
+    } catch (err) {
+      setError('Une erreur de connexion est survenue. Veuillez vérifier votre connexion Internet.');
+      console.error('Error submitting form:', err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const contactInfo = [
@@ -116,6 +146,13 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {error && (
+                    <div className="p-4 bg-red-50 rounded-lg border-2 border-red-500 flex items-start gap-3">
+                      <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <p className="text-red-700">{error}</p>
+                    </div>
+                  )}
+
                   <div>
                     <label className="block text-sm font-bold text-blue-900 mb-2">
                       Nom Complet *
@@ -199,9 +236,10 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full px-8 py-4 bg-blue-900 text-white font-bold rounded-lg hover:bg-blue-800 transition-all duration-200 hover:scale-105 flex items-center justify-center gap-2"
+                    disabled={isLoading}
+                    className="w-full px-8 py-4 bg-blue-900 text-white font-bold rounded-lg hover:bg-blue-800 transition-all duration-200 hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Envoyer le Message <Send className="w-5 h-5" />
+                    {isLoading ? 'Envoi en cours...' : 'Envoyer le Message'} <Send className="w-5 h-5" />
                   </button>
                 </form>
               )}
