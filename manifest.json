@@ -1,8 +1,9 @@
 {
+  "id": "rising-digital-ia-pwa",
   "name": "Rising Digital IA - L'Innovation au Service de l'Afrique",
   "short_name": "Rising Digital IA",
   "description": "Accompagnement des PME, églises et entrepreneurs africains vers la digitalisation intelligente grâce à l'IA, au marketing moderne et à l'innovation digitale.",
-  "start_url": "/",
+  "start_url": "/?utm_source=pwa",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
@@ -84,29 +85,6 @@
           "type": "image/webp"
         }
       ]
-    },
-    {
-      "name": "Contacter via WhatsApp",
-      "short_name": "WhatsApp",
-      "description": "Discuter directement sur WhatsApp",
-      "url": "https://wa.me/22893392515",
-      "icons": [
-        {
-          "src": "https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/icon-192-QkRECh7uAw5BZuDnHFkpjR.webp",
-          "sizes": "192x192",
-          "type": "image/webp"
-        }
-      ]
     }
-  ],
-  "share_target": {
-    "action": "/share",
-    "method": "POST",
-    "enctype": "multipart/form-data",
-    "params": {
-      "title": "title",
-      "text": "text",
-      "url": "url"
-    }
-  }
+  ]
 }
