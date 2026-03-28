@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import MobileBottomNav from "./components/MobileBottomNav";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 function Router() {
@@ -34,6 +35,7 @@ function Router() {
 function Layout() {
   return (
     <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
       <Header />
       <main className="flex-1">
         <Router />
