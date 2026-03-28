@@ -4,50 +4,28 @@
  * Design moderne type application mobile avec icônes et animations
  * 
  * Fonctionnalités:
- * - Navigation fixe en bas de l'écran
+ * - Navigation fixe permanente en bas de l'écran
  * - Icônes modernes avec labels
  * - Indicateur actif avec animation
  * - Effet tactile et vibration (si supportée)
  * - Scroll automatique vers le haut au clic
- * - Masquage/affichage automatique au scroll
  */
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
-import { Home, Briefcase, Info, Image, Mail } from 'lucide-react';
+import { Home, Briefcase, Mail, User, Info } from 'lucide-react';
 
 export default function MobileBottomNav() {
   const [location] = useLocation();
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
-  // Menu items avec icônes - optimisé pour mobile
+  // Menu items avec icônes - ordre: Accueil, Services, Portfolio, Contact, À propos
   const menuItems = [
     { label: 'Accueil', href: '/', icon: Home },
     { label: 'Services', href: '/services', icon: Briefcase },
-    { label: 'À propos', href: '/about', icon: Info },
-    { label: 'Portfolio', href: '/portfolio', icon: Image },
+    { label: 'Portfolio', href: '/portfolio', icon: User },
     { label: 'Contact', href: '/contact', icon: Mail },
+    { label: 'À propos', href: '/about', icon: Info },
   ];
-
-  // Détecter le scroll pour masquer/afficher la navbar
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Masquer si on scroll vers le bas, afficher si on scroll vers le haut
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
 
   // Fonction pour scroller en haut avec animation fluide
   const scrollToTop = () => {
@@ -82,13 +60,11 @@ export default function MobileBottomNav() {
 
   return (
     <>
-      {/* Navbar mobile fixe en bas - optimisée */}
+      {/* Navbar mobile fixe en bas - permanente */}
       <nav
         className={`
           fixed bottom-0 left-0 right-0 z-40 md:hidden
           bg-white border-t-2 border-gray-200 shadow-2xl
-          transition-transform duration-300 ease-out
-          ${isVisible ? 'translate-y-0' : 'translate-y-full'}
           safe-area-inset-bottom
         `}
         style={{
