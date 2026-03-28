@@ -12,6 +12,8 @@ import Contact from "./pages/Contact";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
+import MobileBottomNav from "./components/MobileBottomNav";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 
 function Router() {
@@ -38,6 +40,10 @@ function Layout() {
       </main>
       <Footer />
       <WhatsAppButton />
+      {/* Mobile Bottom Navigation */}
+      <MobileBottomNav />
+      {/* Scroll to Top Button */}
+      <ScrollToTopButton />
     </div>
   );
 }
