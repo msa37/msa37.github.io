@@ -15,7 +15,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
     <script type="module" crossorigin src="/assets/index-OlIqvVMQ.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-S6SPmjOr.css">
-  </head>
+      <!-- PWA Meta Tags -->
+    <meta name="application-name" content="Rising Digital IA" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Rising Digital IA" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- Manifest et Icons -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/png" sizes="192x192" href="https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/icon-192-QkRECh7uAw5BZuDnHFkpjR.webp" />
+    <link rel="apple-touch-icon" href="https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/icon-192-QkRECh7uAw5BZuDnHFkpjR.webp" />
+    
+</head>
 
   <body>
     <script id="manus-runtime">window.__MANUS_HOST_DEV__ = false;
@@ -80,6 +92,44 @@ Error generating stack: `+l.message+`
 
     <div id="root"></div>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="514f2929-9523-48d5-86a4-a461523e761a"></script>
-  </body>
+  
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+            .then((registration) => {
+              console.log('[PWA] Service Worker enregistré');
+              setInterval(() => { registration.update(); }, 3600000);
+            })
+            .catch((error) => {
+              console.error('[PWA] Erreur Service Worker:', error);
+            });
+        });
+      }
+    </script>
+    
+    <!-- Installation PWA -->
+    <script>
+      let deferredPrompt = null;
+      window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault();
+        deferredPrompt = event;
+        window.dispatchEvent(new CustomEvent('pwa-installable', { detail: { deferredPrompt } }));
+      });
+      
+      window.addEventListener('appinstalled', () => {
+        deferredPrompt = null;
+        window.dispatchEvent(new CustomEvent('pwa-installed'));
+      });
+      
+      window.installPWA = async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt = null;
+      };
+    </script>
+</body>
 
 </html>

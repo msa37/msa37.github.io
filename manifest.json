@@ -1,0 +1,112 @@
+{
+  "name": "Rising Digital IA - L'Innovation au Service de l'Afrique",
+  "short_name": "Rising Digital IA",
+  "description": "Accompagnement des PME, églises et entrepreneurs africains vers la digitalisation intelligente grâce à l'IA, au marketing moderne et à l'innovation digitale.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1e3a8a",
+  "background_color": "#ffffff",
+  "prefer_related_applications": false,
+  "categories": ["business", "productivity"],
+  "screenshots": [
+    {
+      "src": "https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/splash-screen-2TVtQd3sPnFSL9WQtKsrM.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "purpose": "any"
+    },
+    {
+      "src": "https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/splash-screen-JT5eLmedP7bj7HmJ6atFsG.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "purpose": "any"
+    }
+  ],
+  "icons": [
+    {
+      "src": "https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/icon-192-QkRECh7uAw5BZuDnHFkpjR.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/icon-192-PEwPqhbgLuQPuDj5MdTrZp.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/icon-512-9Yih4PkcX2bUktJpSnpKst.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/icon-512-ksMqmeqtXGfCspzj4d3Aot.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/icon-512-9Yih4PkcX2bUktJpSnpKst.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Demander un Devis",
+      "short_name": "Devis",
+      "description": "Demander un devis pour nos services",
+      "url": "/?action=quote",
+      "icons": [
+        {
+          "src": "https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/icon-192-QkRECh7uAw5BZuDnHFkpjR.webp",
+          "sizes": "192x192",
+          "type": "image/webp"
+        }
+      ]
+    },
+    {
+      "name": "Nos Services",
+      "short_name": "Services",
+      "description": "Découvrir nos services digitaux et IA",
+      "url": "/?action=services",
+      "icons": [
+        {
+          "src": "https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/icon-192-QkRECh7uAw5BZuDnHFkpjR.webp",
+          "sizes": "192x192",
+          "type": "image/webp"
+        }
+      ]
+    },
+    {
+      "name": "Contacter via WhatsApp",
+      "short_name": "WhatsApp",
+      "description": "Discuter directement sur WhatsApp",
+      "url": "https://wa.me/22893392515",
+      "icons": [
+        {
+          "src": "https://d2xsxph8kpxj0f.cloudfront.net/310519663487005273/YKrbBnkYDUxTTkG6pnaD9h/icon-192-QkRECh7uAw5BZuDnHFkpjR.webp",
+          "sizes": "192x192",
+          "type": "image/webp"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}
