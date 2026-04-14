@@ -1,33 +1,50 @@
-# Rising Digital IA
+# Lumeniax
 
-## Project Overview
-A React + Vite web application with a lightweight Express server for production static file serving. Built with TypeScript, Tailwind CSS v4, and Radix UI components.
+A premium digital ecosystem website showcasing two sub-brands: **Lumeniax Studio** (a digital transformation agency) and **Lumeniax Academy** (an editorial and training platform).
 
-## Architecture
-- **Frontend**: React 19 + Vite 7, TypeScript, Tailwind CSS v4, Radix UI, Framer Motion, Wouter (routing)
-- **Backend**: Express.js (production only, serves built static files)
-- **Package Manager**: pnpm
+## Tech Stack
+
+- **Framework:** React 19 + TypeScript
+- **Build Tool:** Vite 7
+- **Styling:** Tailwind CSS v4
+- **UI Components:** Radix UI + shadcn/ui
+- **Routing:** Wouter
+- **Animations:** Framer Motion
+- **State/Data:** TanStack Query (React Query)
+- **Forms:** React Hook Form + Zod
+- **Icons:** Lucide React + React Icons
+- **Package Manager:** npm
 
 ## Project Structure
-```
-client/        - React frontend source (Vite root)
-  src/         - App components, pages, contexts, hooks
-server/        - Express server entry (index.ts) for production
-shared/        - Shared constants between client and server
-dist/          - Build output (public/ for frontend, index.js for server)
-```
 
-## Key Configuration
-- Vite dev server: port 5000, host 0.0.0.0, allowedHosts: "all"
-- Production server: port from PORT env var, defaults to 3000
-- Path aliases: `@` → `client/src`, `@shared` → `shared`, `@assets` → `attached_assets`
+```
+src/
+  components/    # Reusable UI components (including shadcn/ui in components/ui/)
+  hooks/         # Custom React hooks
+  lib/           # Utility functions, animations
+  pages/         # Page components (Home, About, Contact, Studio/*, Academy/*)
+  App.tsx        # Main app with routing
+  main.tsx       # Entry point
+  index.css      # Global styles + Tailwind directives
+public/          # Static assets
+dist/            # Build output
+```
 
 ## Development
-- Run: `pnpm run dev` (starts Vite dev server on port 5000)
-- Build: `pnpm run build` (bundles frontend + compiles server)
-- Production: `node dist/index.js`
+
+```bash
+npm install
+npm run dev      # Starts dev server on port 5000
+npm run build    # Production build to dist/
+```
 
 ## Deployment
-- Target: autoscale
-- Build command: `pnpm run build`
-- Run command: `node dist/index.js`
+
+Configured as a **static** deployment:
+- Build command: `npm run build`
+- Public directory: `dist/`
+
+## Configuration Notes
+
+- Dev server runs on `0.0.0.0:5000` with `allowedHosts: true` for Replit proxy compatibility
+- Path alias `@` maps to `src/`
